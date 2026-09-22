@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nosso Cantinho 💜</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #c8a2e8;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 100vh;
+        }
+
+        .caixa {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+
+            width: 300px;
+            text-align: center;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #7b3fb5;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 8px 0;
+
+            border: 1px solid #bbb;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 98%;
+            padding: 12px;
+            margin-top: 10px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: #7b3fb5;
+            color: white;
+
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #642f96;
+        }
+
+        #erro {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="caixa">
+
+        <h1>💜 Bem-vinda</h1>
+
+        <p>Entre para acessar uma surpresa.</p>
+
+        <input
+            type="text"
+            id="nome"
+            placeholder="Nome"
+        >
+
+        <input
+            type="password"
+            id="senha"
+            placeholder="Senha"
+        >
+
+        <button onclick="entrar()">
+            Entrar 💜
+        </button>
+
+        <p id="erro"></p>
+
+    </div>
+
+
+    <script>
+
+        function entrar() {
+
+            const nome = document.getElementById("nome").value;
+            const senha = document.getElementById("senha").value;
+
+            if (
+                nome === "Yasmin Santos Moraes" &&
+                senha === "220626"
+            ) {
+
+                window.location.href = "declaracao.html";
+
+            } else {
+
+                document.getElementById("erro").innerText =
+                    "Nome ou senha incorretos.";
+
+            }
+        }
+
+    </script>
+
+</body>
+</html>
