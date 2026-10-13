@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para Yasmin 💜</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 30px 15px;
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #c8a2e8,
+                #9b6dcc,
+                #e6d4f7
+            );
+
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .declaracao {
+            background: rgba(255, 255, 255, 0.95);
+            width: 100%;
+            max-width: 650px;
+            margin: 0 auto 35px;
+            padding: 35px;
+            border-radius: 25px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        h1 {
+            color: #713aa3;
+            font-size: 38px;
+        }
+
+        p {
+            color: #4b315c;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .coracao {
+            font-size: 45px;
+            margin: 10px;
+        }
+
+        .assinatura {
+            margin-top: 30px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #713aa3;
+        }
+
+        /* ÁREA DOS 10 ÍCONES */
+
+        .secao-musica {
+            width: 100%;
+            max-width: 850px;
+            margin: auto;
+            padding: 30px 20px;
+
+            background: rgba(255, 255, 255, 0.94);
+            border-radius: 25px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);
+        }
+
+        .secao-musica h2 {
+            color: #713aa3;
+            font-size: 28px;
+        }
+
+        .instrucao {
+            font-size: 16px;
+            color: #6b4c7d;
+            margin-bottom: 25px;
+        }
+
+        .grade-icones {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .item-musica {
+            border: 2px solid #e3c9f7;
+            background: linear-gradient(
+                145deg,
+                #fffaff,
+                #f0e1fc
+            );
+
+            border-radius: 18px;
+            min-width: 0;
+            min-height: 145px;
+            padding: 12px 5px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            cursor: pointer;
+            color: #713aa3;
+            font-family: inherit;
+
+            box-shadow: 0 5px 12px rgba(113, 58, 163, 0.12);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .item-musica:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(113, 58, 163, 0.25);
+            background: #f8edff;
+        }
+
+        .item-musica:focus-visible {
+            outline: 3px solid #713aa3;
+            outline-offset: 4px;
+        }
+
+        .icone {
+            font-size: 39px;
+            line-height: 1.2;
+        }
+
+        .capa {
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1.4;
+            overflow-wrap: anywhere;
+        }
+
+        .rodape {
+            color: #713aa3;
+            font-size: 14px;
+            margin-top: 25px;
+        }
+
+        /* MENSAGEM QUE FLUTUA PELA TELA */
+
+        .mensagem-flutuante {
+            position: fixed;
+            z-index: 9999;
+
+            width: max-content;
+            max-width: min(320px, calc(100vw - 30px));
+
+            padding: 17px 20px;
+            border: 2px solid #e6ccfa;
+            border-radius: 20px;
+
+            background: rgba(255, 250, 255, 0.97);
+            color: #713aa3;
+
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.6;
+
+            overflow-wrap: anywhere;
+            text-align: center;
+            pointer-events: none;
+
+            box-shadow: 0 8px 25px rgba(70, 30, 100, 0.2);
+
+            transform: translate(-50%, 0);
+            animation: flutuar 4s ease-in-out forwards;
+        }
+
+        @keyframes flutuar {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, 20px) scale(0.7);
+            }
+
+            12% {
+                opacity: 1;
+                transform: translate(-50%, 0) scale(1);
+            }
+
+            65% {
+                opacity: 1;
+                transform: translate(
+                    calc(-50% + var(--desvio, 0px)),
+                    -180px
+                ) scale(1.04);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(
+                    calc(-50% - var(--desvio, 0px)),
+                    -320px
+                ) scale(0.9);
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 18px 10px;
+            }
+
+            .declaracao {
+                padding: 25px 18px;
+            }
+
+            h1 {
+                font-size: 29px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .secao-musica {
+                padding: 25px 12px;
+            }
+
+            .secao-musica h2 {
+                font-size: 23px;
+            }
+
+            .grade-icones {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .item-musica {
+                min-height: 125px;
+            }
+
+            .icone {
+                font-size: 35px;
+            }
+
+            .capa {
+                font-size: 13px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .item-musica {
+                transition: none;
+            }
+
+            .mensagem-flutuante {
+                animation-duration: 1.5s;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+   
+
+    <section class="secao-musica">
+
+        <h2>Um pedacinho do meu coração 💜</h2>
+
+        <p class="instrucao">
+            Toque em cada ícone e descubra a mensagem que ele guarda ✨
+        </p>
+
+        <div class="grade-icones" id="gradeIcones">
+            <!-- Os 10 ícones serão criados pelo JavaScript -->
+        </div>
+
+        <div class="rodape">
+            Feito especialmente para você, Yasmin 💜
+        </div>
+
+    </section>
+
+
+    <script>
+
+       
+        const mensagens = [
+
+            {
+                icone: "💜",
+                capa: "Partilhar-Rubel",
+                mensagem: "Se for preciso eu pego um barco eu remo por seis meses como um peixe para lhe ver"
+            },
+
+            {
+                icone: "💌",
+                capa: "Vem cá-Pelé MilFlows",
+                mensagem: "Demorei para encontrar alguem como você/Como você não há"
+            },
+
+            {
+                icone: "🌷",
+                capa: "Nois dois-Pedro Valença",
+                mensagem: "Nois dois desde o primeiro beijo até envelhecer..."
+            },
+
+            {
+                icone: "❤️",
+                capa: "Portugal-Kauê e Amanda",
+                mensagem: "Eu fiz um pedido a estrela cadente, vem comigo que você não se arrepende..."
+            },
+
+            {
+                icone: "✨",
+                capa: "Pupila-ANAVITORIA",
+                mensagem: "Eu gosto do seu cheiro, da cor do seu cabelo, ela faz minha pupila dilatar..."
+            },
+
+            {
+                icone: "💖",
+                capa: "(Be a Flower-Miura Jam",
+                mensagem: `Meu olhar se prende a ti
+Consigo sentir, o seu veneno será o remédio a me curar
+Tenho tanto a oferecer pra você`
+            },
+
+            {
+                icone: "🦋",
+                capa: "Ding-dong-Mao Abe",
+                mensagem: "Do nosso próprio jeito, podemos nos encontrar e nos olhar"
+            },
+
+            {
+                icone: "🌹",
+                capa: "Mais-Amanda Rodrigues",
+                mensagem: "Você merece mais que meia duzia de palavras que todo mundo diz, você merece que eu viva para lhe fazer feliz"
+            },
+
+            {
+                icone: "💟",
+                capa: "Trevo-ANAVITÒRIA",
+                mensagem: "Tú és trevo de quatro folhas, é manhã de domingo atoa..."
+            },
+
+            {
+                icone: "💕",
+                capa: "Simpes e romântico-Nícolas Germano",
+                mensagem: `Eu sou, simples e romântico
+Pra você eu não falo, eu canto
+Vou gravar um vídeo
+E mostrar pro mundo o tanto
+O tanto que te quero e o tanto que eu te amo`
+            }
+
+        ];
+
+
+        const grade = document.getElementById("gradeIcones");
+
+        mensagens.forEach((item, indice) => {
+
+            const botao = document.createElement("button");
+
+            botao.type = "button";
+            botao.className = "item-musica";
+
+            botao.setAttribute(
+                "aria-label",
+                item.capa + ". Clique para revelar a mensagem."
+            );
+
+            botao.innerHTML = `
+                <span class="icone">${item.icone}</span>
+                <span class="capa">${item.capa}</span>
+            `;
+
+            botao.addEventListener("click", () => {
+                criarMensagemFlutuante(item, botao, indice);
+            });
+
+            grade.appendChild(botao);
+
+        });
+
+
+        /*
+        ====================================================
+        ANIMAÇÃO DAS MENSAGENS
+        ====================================================
+        */
+
+        function criarMensagemFlutuante(item, botao, indice) {
+
+            const mensagem = document.createElement("div");
+
+            mensagem.className = "mensagem-flutuante";
+
+            // textContent evita interpretar a mensagem como HTML.
+            mensagem.textContent = item.mensagem;
+
+            const posicao = botao.getBoundingClientRect();
+
+            // Posiciona a mensagem sobre o ícone selecionado.
+            mensagem.style.left =
+                (posicao.left + posicao.width / 2) + "px";
+
+            mensagem.style.top =
+                Math.max(10, posicao.top - 15) + "px";
+
+            // Pequenas variações deixam as animações mais naturais.
+            const desvios = [-25, 20, -15, 30, 0];
+
+            mensagem.style.setProperty(
+                "--desvio",
+                desvios[indice % desvios.length] + "px"
+            );
+
+            document.body.appendChild(mensagem);
+
+            // Remove o elemento após o fim da animação.
+            mensagem.addEventListener("animationend", () => {
+                mensagem.remove();
+            }, { once: true });
+
+        }
+
+    </script>
+
+</body>
+</html>
