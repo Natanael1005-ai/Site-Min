@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedido a Yasmin 💖</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    overflow:hidden;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff8fd8,#d47cff,#8b5cf6);
+}
+
+.container{
+    width:420px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(12px);
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+    color:white;
+    box-shadow:0 0 30px rgba(0,0,0,.2);
+}
+
+h1{
+    margin-bottom:15px;
+}
+
+p{
+    margin-bottom:30px;
+    font-size:18px;
+}
+
+.botoes{
+    position:relative;
+    width:300px;
+    height:120px;
+    margin:auto;
+}
+
+button{
+    width:120px;
+    height:50px;
+    border:none;
+    border-radius:50px;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#sim{
+    position:absolute;
+    left:20px;
+    top:30px;
+    background:#ff2f92;
+    color:white;
+}
+
+#sim:hover{
+    transform:scale(1.1);
+}
+
+#nao{
+    position:absolute;
+    left:160px;
+    top:30px;
+    background:#7c3aed;
+    color:white;
+}
+
+#mensagem{
+    position:fixed;
+    color:#fff;
+    font-weight:bold;
+    font-size:22px;
+    opacity:0;
+    transition:.4s;
+    pointer-events:none;
+    text-shadow:0 0 10px rgba(0,0,0,.4);
+}
+
+#resultado{
+    display:none;
+    animation:aparece .8s;
+}
+
+@keyframes aparece{
+    from{
+        transform:scale(.5);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.heart{
+    position:fixed;
+    color:#ffb3da;
+    animation:subir linear infinite;
+}
+
+@keyframes subir{
+    0%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>💖 Confirmação 💖</h1>
+
+<p>
+Quer namorar comigo?
+</p>
+
+<div class="botoes">
+
+<div id="mensagem">
+💖 Sabia que você diria SIM! 💖
+</div>
+
+<button id="sim">Sim 💕</button>
+
+<button id="nao">Não </button>
+
+</div>
+
+<div id="resultado">
+<h2>Assim como naquela tarde de filme, lhe repito:</h2>
+<p>Eu gosto de você e lhe amo, desejo lhe cuidar e se preciso esperarei por você, sendo você minha princesa única e amada9Dona do meu coração! ❤️</p>
+</div>
+
+</div>
+
+<script>
+
+const nao = document.getElementById("nao");
+const sim = document.getElementById("sim");
+const mensagem = document.getElementById("mensagem");
+const resultado = document.getElementById("resultado");
+
+// Botão NÃO foge
+nao.addEventListener("mouseover", () => {
+
+    const largura = window.innerWidth - nao.offsetWidth;
+    const altura = window.innerHeight - nao.offsetHeight;
+
+    const x = Math.random() * largura;
+    const y = Math.random() * altura;
+
+    nao.style.position = "fixed";
+    nao.style.left = x + "px";
+    nao.style.top = y + "px";
+});
+
+// Texto pula acima do botão SIM
+sim.addEventListener("mouseenter", () => {
+
+    const rect = sim.getBoundingClientRect();
+
+    mensagem.style.left = (rect.left - 600) + "px";
+    mensagem.style.top = (rect.top - 50) + "px";
+    mensagem.style.opacity = "1";
+
+    mensagem.animate([
+        { transform: "translateY(20px)" },
+        { transform: "translateY(-15px)" },
+        { transform: "translateY(0)" }
+    ], {
+        duration: 500
+    });
+
+});
+
+sim.addEventListener("mouseleave", () => {
+    mensagem.style.opacity = "0";
+});
+
+// Clique em SIM
+sim.addEventListener("click", () => {
+
+    document.querySelector(".botoes").style.display = "none";
+
+    resultado.style.display = "block";
+
+    for(let i = 0; i < 120; i++){
+        criarCoracao();
+    }
+
+});
+
+// Corações
+function criarCoracao(){
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (20 + Math.random() * 35) + "px";
+    heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    },8000);
+
+}
+
+setInterval(criarCoracao,350);
+
+</script>
+
+</body>
+</html>
