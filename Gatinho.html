@@ -1,0 +1,781 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Um carinho para Yasmin 💖</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg,
+        #ff8fd8, #d47cff, #8b5cf6);
+    padding: 15px;
+}
+
+.container {
+    width: 440px;
+    max-width: 100%;
+    padding: 30px;
+    text-align: center;
+    color: white;
+
+    background: rgba(255,255,255,.16);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 30px;
+
+    box-shadow: 0 0 40px rgba(0,0,0,.2);
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* MASCOTE */
+
+.gato-area {
+    position: relative;
+    margin: 15px auto 20px;
+    width: 190px;
+    height: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gato {
+    font-size: 115px;
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+    animation: flutuar 2s infinite ease-in-out;
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,.2));
+    transition: .3s;
+}
+
+.gato:hover {
+    transform: scale(1.15);
+}
+
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-13px);
+    }
+}
+
+/* ANIMAÇÕES DO GATO */
+
+.gato.pulando {
+    animation: pular .6s ease;
+}
+
+@keyframes pular {
+    0%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-55px) rotate(10deg); }
+    70% { transform: translateY(-20px) rotate(-10deg); }
+}
+
+.gato.dormindo {
+    animation: dormir 2s infinite ease-in-out;
+}
+
+@keyframes dormir {
+    0%, 100% { transform: rotate(0); }
+    50% { transform: rotate(8deg) translateY(5px); }
+}
+
+/* BALÃO DE FALA */
+
+.balao {
+    min-height: 75px;
+    padding: 17px;
+    background: rgba(255,255,255,.25);
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 20px;
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    transition: .3s;
+}
+
+.balao::after {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: rgba(255,255,255,.25);
+    transform: rotate(45deg);
+    position: relative;
+    margin: 8px auto -24px;
+}
+
+.botoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+button {
+    border: none;
+    border-radius: 50px;
+    padding: 13px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+    background: #ff2f92;
+    box-shadow: 0 5px 15px rgba(0,0,0,.15);
+}
+
+button:hover {
+    transform: scale(1.08);
+    filter: brightness(1.1);
+}
+
+#dormir {
+    background: #7c3aed;
+}
+
+#carinho {
+    background: #ff2f92;
+}
+
+.instrucao {
+    margin-top: 22px;
+    font-size: 13px;
+    opacity: .85;
+}
+
+/* CORAÇÕES */
+
+.heart {
+    position: fixed;
+    bottom: -50px;
+    pointer-events: none;
+    z-index: 1;
+    animation: subir linear forwards;
+}
+
+@keyframes subir {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+
+    20% { opacity: 1; }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* BRILHOS */
+
+.brilho {
+    position: fixed;
+    pointer-events: none;
+    animation: desaparecer 1s forwards;
+    z-index: 3;
+}
+
+@keyframes desaparecer {
+    0% {
+        transform: scale(.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2) translateY(-30px);
+        opacity: 0;
+    }
+}
+
+@media(max-width: 480px) {
+    .container {
+        padding: 23px 17px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+
+    .gato {
+        font-size: 100px;
+    }
+
+    button {
+        padding: 12px 15px;
+    }
+}
+
+/* NOVAS ANIMAÇÕES */
+
+@keyframes dancar {
+    0%, 100% { transform: rotate(0) translateY(0); }
+    25% { transform: rotate(20deg) translateY(-15px); }
+    50% { transform: rotate(-20deg) translateY(-25px); }
+    75% { transform: rotate(15deg) translateY(-10px); }
+}
+
+@keyframes beijo {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4) rotate(10deg); }
+    100% { transform: scale(1); }
+}
+
+@keyframes abraco {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.35); }
+}
+
+@keyframes comer {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(-15deg); }
+    50% { transform: rotate(15deg); }
+    75% { transform: rotate(-10deg); }
+}
+
+.anim-dancar {
+    animation: dancar .8s infinite !important;
+}
+
+.anim-beijo {
+    animation: beijo .7s ease !important;
+}
+
+.anim-abraco {
+    animation: abraco .8s ease !important;
+}
+
+.anim-comer {
+    animation: comer .5s infinite !important;
+}
+
+.anim-fofo {
+    animation: beijo 1s infinite !important;
+}
+
+/* CARTINHA */
+
+.cartinha {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.25);
+    line-height: 1.7;
+    animation: aparece .7s;
+}
+
+.cartinha h2 {
+    margin-bottom: 12px;
+}
+
+@keyframes aparece {
+    from {
+        opacity: 0;
+        transform: scale(.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* BOLINHA */
+
+.bolinha {
+    position: fixed;
+    font-size: 35px;
+    z-index: 5;
+    animation: brincarBolinha 1.5s ease-in-out;
+}
+
+@keyframes brincarBolinha {
+    0% { transform: translate(0,0); }
+    25% { transform: translate(100px,-80px); }
+    50% { transform: translate(-100px,-130px); }
+    75% { transform: translate(120px,-50px); }
+    100% { transform: translate(0,0); }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>💖 Oi, Yasmin! 💖</h1>
+
+    <p class="subtitulo">
+        Tenho alguém especial que quer falar com você...
+    </p>
+
+    <div class="gato-area">
+
+        <div class="gato" id="gato">
+            🐱
+        </div>
+
+    </div>
+
+    <div class="balao" id="balao">
+        Oiii, Yasmin! 🥰
+        Meu humano pediu para entregar
+        um montão de carinho para você!
+    </div>
+
+   
+<div class="botoes">
+
+    <button id="carinho">🥰 Fazer carinho</button>
+
+    <button id="pular">🐾 Pular!</button>
+
+    <button id="dormir">💤 Dormir</button>
+
+    <button id="beijo">😽 Beijinho</button>
+
+    <button id="abracar">❤️ Abraçar</button>
+
+    <button id="dancar">💃 Dançar</button>
+
+    <button id="brincar">🧶 Brincar</button>
+
+    <button id="comer">🍓 Comer</button>
+
+    <button id="cantar">🎵 Cantar</button>
+
+    <button id="surpresa">🎁 Surpresa</button>
+
+    <button id="cartinha">💌 Cartinha</button>
+
+    <button id="fofo">🥺 Carinha fofa</button>
+
+</div>
+
+<div class="cartinha" id="cartinhaConteudo">
+
+    <h2>💌 Para Yasmin</h2>
+
+    <p>
+        Oi, minha princesa! ❤️
+    </p>
+
+    <p>
+        Talvez um gatinho não consiga expressar
+        todo o carinho que existe em um coração,
+        mas ele veio aqui para lembrar que você
+        é uma pessoa muito especial.
+    </p>
+
+    <p>
+        Que nunca faltem motivos para sorrir,
+        sonhos para realizar e momentos bonitos
+        para guardar na memória.
+    </p>
+
+    <p>
+        Com muito carinho,
+        seu admirador e esse gatinho apaixonado! 🐱💕
+    </p>
+
+</div>
+
+
+
+    <p class="instrucao">
+        ✨ Clique no gatinho para descobrir uma surpresa! ✨
+    </p>
+
+</div>
+
+<script>
+
+const gato = document.getElementById("gato");
+const balao = document.getElementById("balao");
+
+const frases = [
+    "Yasmin, sabia que você é uma pessoa muito especial? 💖",
+
+    "Miau! Passei aqui só para lembrar que você é muito querida! 🐱",
+
+    "Se eu pudesse, entregaria mil flores para você! 💗",
+
+    "Meu humano mandou dizer que gosta muito de você! 🥰",
+
+    "Você merece todos os sorrisos e momentos felizes do mundo e o melhor do meu dono! 🌷",
+
+    "Miau miau! Hoje é um ótimo dia para lembrar o quanto você é  amada pelo meu dono! 💕",
+
+    "Enviei um abraço do meu dono! ❤️",
+
+    "Até um gatinho sabe reconhecer o quanto ele te ama! 😽",
+
+    "Yasmin, nunca se esqueça do quanto você é importante! ✨",
+
+    "Você é a pessoa favorita deste gatinho e do dono dele! 🐾"
+];
+
+let indice = 0;
+let dormindo = false;
+
+// Trocar expressão e frase
+
+function falar(texto) {
+    balao.style.opacity = "0";
+    balao.style.transform = "scale(.9)";
+
+    setTimeout(() => {
+        balao.innerHTML = texto;
+        balao.style.opacity = "1";
+        balao.style.transform = "scale(1)";
+    }, 200);
+}
+
+// Carinho
+
+document.getElementById("carinho")
+.addEventListener("click", () => {
+
+    dormindo = false;
+    gato.classList.remove("dormindo");
+
+    gato.innerHTML = "😻";
+
+    falar(frases[indice]);
+
+    indice = (indice + 1) % frases.length;
+
+    criarCoracoes(8);
+
+});
+
+// Clicar no gatinho
+
+gato.addEventListener("click", () => {
+
+    dormindo = false;
+    gato.classList.remove("dormindo");
+
+    gato.innerHTML = "😽";
+
+    falar("Miaaaau! Você me deu carinho! 💖");
+
+    criarCoracoes(12);
+
+});
+
+// Pular
+
+document.getElementById("pular")
+.addEventListener("click", () => {
+
+    dormindo = false;
+    gato.classList.remove("dormindo");
+
+    gato.innerHTML = "🐱";
+
+    gato.classList.remove("pulando");
+
+    void gato.offsetWidth;
+
+    gato.classList.add("pulando");
+
+    falar("Olha como eu pulo de felicidade, Yasmin! 🐾");
+
+    criarBrilhos();
+
+});
+
+// Dormir
+
+document.getElementById("dormir")
+.addEventListener("click", () => {
+
+    dormindo = !dormindo;
+
+    if(dormindo) {
+
+        gato.innerHTML = "🐈‍⬛💤";
+        gato.classList.add("dormindo");
+
+        falar("Shhhhh... O gatinho foi dormir sonhando com coisas bonitas... 💤💗");
+
+    } else {
+
+        gato.innerHTML = "🐱";
+        gato.classList.remove("dormindo");
+
+        falar("Bom diaaa, Yasmin! Já estava com saudade! 🥰");
+
+    }
+
+});
+
+// Corações
+
+function criarCoracoes(quantidade) {
+
+    for(let i = 0; i < quantidade; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.innerHTML = ["💖","💕","💗","❤️","💝"][
+            Math.floor(Math.random() * 5)
+        ];
+
+        heart.style.left = Math.random() * 100 + "vw";
+
+        heart.style.fontSize =
+            (20 + Math.random() * 25) + "px";
+
+        heart.style.animationDuration =
+            (3 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6500);
+
+    }
+
+}
+
+// Brilhos
+
+function criarBrilhos() {
+
+    for(let i = 0; i < 12; i++) {
+
+        const brilho = document.createElement("div");
+
+        brilho.className = "brilho";
+        brilho.innerHTML = "✨";
+
+        brilho.style.left = Math.random() * 100 + "vw";
+        brilho.style.top = Math.random() * 100 + "vh";
+        brilho.style.fontSize = "25px";
+
+        document.body.appendChild(brilho);
+
+        setTimeout(() => brilho.remove(), 1000);
+
+    }
+
+}
+
+// Corações automáticos no fundo
+
+setInterval(() => {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = "💗";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = "20px";
+    heart.style.animationDuration = "7s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 7000);
+
+}, 900);
+
+
+function animarGato(classe, emoji, frase) {
+
+    gato.className = "gato";
+    gato.innerHTML = emoji;
+
+    void gato.offsetWidth;
+
+    gato.classList.add(classe);
+
+    falar(frase);
+
+    setTimeout(() => {
+        gato.className = "gato";
+    }, 2500);
+}
+
+// Beijinho
+document.getElementById("beijo").onclick = () => {
+
+    dormindo = false;
+
+    animarGato(
+        "anim-beijo",
+        "😽",
+        "Muaaaah! Que fofinha Yasmin! 💋"
+    );
+
+    criarCoracoes(20);
+};
+
+// Abraço
+document.getElementById("abracar").onclick = () => {
+
+    dormindo = false;
+
+    animarGato(
+        "anim-abraco",
+        "😻",
+        "Um abraço bem apertadinho e cheio de carinho! ❤️"
+    );
+
+    criarCoracoes(25);
+};
+
+// Dançar
+document.getElementById("dancar").onclick = () => {
+
+    dormindo = false;
+
+    animarGato(
+        "anim-dancar",
+        "😸",
+        "Olha só minha dança! Estou feliz porque você chegou! 💃"
+    );
+
+    criarBrilhos();
+};
+
+// Brincar
+document.getElementById("brincar").onclick = () => {
+
+    dormindo = false;
+
+    animarGato(
+        "anim-dancar",
+        "🐱",
+        "Obaaaa! Hora de brincar com minha bolinha! 🧶"
+    );
+
+    const bolinha = document.createElement("div");
+
+    bolinha.className = "bolinha";
+    bolinha.innerHTML = "🧶";
+
+    bolinha.style.left = "45%";
+    bolinha.style.top = "45%";
+
+    document.body.appendChild(bolinha);
+
+    setTimeout(() => bolinha.remove(), 1600);
+};
+
+// Comer
+document.getElementById("comer").onclick = () => {
+
+    dormindo = false;
+
+    animarGato(
+        "anim-comer",
+        "🐱🐟",
+        "NHAC NHAC! Esse peixe estava delicioso!🐟 "
+    );
+
+    criarCoracoes(5);
+};
+
+// Cantar
+document.getElementById("cantar").onclick = () => {
+
+    dormindo = false;
+
+    animarGato(
+        "anim-dancar",
+        "😺",
+        "Lá lá lááá! I love you baby...na na na na...! 🎵💗"
+    );
+
+    criarBrilhos();
+};
+
+// Surpresa
+document.getElementById("surpresa").onclick = () => {
+
+    dormindo = false;
+
+    animarGato(
+        "anim-fofo",
+        "😻",
+        "SURPRESAAAA! Você acabou de ganhar um estoque de beijinhos do meu dono! 💖"
+    );
+
+    criarCoracoes(40);
+};
+
+// Carinha fofa
+document.getElementById("fofo").onclick = () => {
+
+    dormindo = false;
+
+    animarGato(
+        "anim-fofo",
+        " 😿",
+        "Yasmin, poderia dar mais um pouquinho de carinho ao meu dono? 🥺💕"
+    );
+};
+
+// Cartinha
+document.getElementById("cartinha").onclick = () => {
+
+    dormindo = false;
+
+    const carta = document.getElementById("cartinhaConteudo");
+
+    carta.style.display =
+        carta.style.display === "block" ? "none" : "block";
+
+    gato.innerHTML = "💌";
+
+    if(carta.style.display === "block") {
+
+        falar("Feliz dia de 5 meses de namoro meu amor, quero você ao meu lado sempre! ❤️");
+
+        criarCoracoes(25);
+
+    } else {
+
+        falar("Espero que tenha gostado da minha cartinha! 🐱");
+
+    }
+};
+
+</script>
+
+</body>
+</html>
